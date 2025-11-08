@@ -1,15 +1,15 @@
 [submodule "apps/backend/gateway"]
 	path = apps/backend/gateway
-	url = https://github.com/maian3333/ridehub-gateway.git
+	url = https://github.com/maian3333/nhipster-gateway.git
 [submodule "apps/backend/ms_booking"]
 	path = apps/backend/ms_booking
-	url = https://github.com/maian3333/ridehub-ms-booking.git
+	url = https://github.com/maian3333/nhipster-ms-booking.git
 [submodule "apps/backend/ms_promotion"]
 	path = apps/backend/ms_promotion
-	url = https://github.com/maian3333/ridehub-ms-promotion.git
+	url = https://github.com/maian3333/nhipster-ms-promotion.git
 [submodule "apps/backend/ms_route"]
 	path = apps/backend/ms_route
-	url = https://github.com/maian3333/ridehub-ms-route.git
+	url = https://github.com/maian3333/nhipster-ms-route.git
 [submodule "apps/backend/ms_user"]
 	path = apps/backend/ms_user
-	url = https://github.com/maian3333/ridehub-ms-user.git
+	url = https://github.com/maian3333/nhipster-ms-user.git
