@@ -1,0 +1,34 @@
+{
+  "name": "@repo/openapi-tools",
+  "version": "1.0.0",
+  "description": "OpenAPI client generation tools for RideHub microservices",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "openapi-tools": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "clean": "rimraf dist",
+    "test": "npm run build && node dist/cli.js --help",
+    "test:token": "npm run build && node -e \"const {TokenFetcher} = require('./dist'); const fetcher = new TokenFetcher(); console.log('TokenFetcher works!');\"",
+    "test:generate": "npm run build && mkdir -p test-openapi test-output && cat > test-openapi/test.json << 'EOF'\n{\n  \"openapi\": \"3.0.0\",\n  \"info\": {\n    \"title\": \"Test API\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/test\": {\n      \"get\": {\n        \"summary\": \"Test endpoint\",\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Success\"\n          }\n        }\n      }\n    }\n  }\n}\nEOF\nnode dist/cli.js generate-clients -i test-openapi -o test-output --client fetch",
+    "test:workflow": "npm run build && echo 'Testing workflow command...' && node dist/cli.js workflow --help"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "commander": "^11.0.0",
+    "fs-extra": "^11.1.1",
+    "chalk": "^4.1.2",
+    "@hey-api/openapi-ts": "^0.87.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "*",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.15.3",
+    "typescript": "5.9.2",
+    "rimraf": "^5.0.10"
+  }
+}
